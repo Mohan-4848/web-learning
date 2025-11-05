@@ -7,7 +7,8 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <div id="container">
+    <div class="main_content" id="container">
+        <h2 class="heading"> Basic Calculator</h2>
         <input readonly id="display">
         <div id="keys">
             <button onclick="appendToDisplay('+')" class="operator-btn">+</button>
@@ -25,8 +26,9 @@
             <button onclick="appendToDisplay('/')" class="operator-btn">/</button>
             <button onclick="appendToDisplay('0')">0</button>
             <button onclick="appendToDisplay('.')">.</button>
-            <button onclick="execute()">=</button>
             <button onclick="clearDisplay()" class="operator-btn">C</button>
+            <button onclick="execute()">=</button>
+            
 
         </div>
     </div>
