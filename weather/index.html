@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wheater</title>
+    <link rel="icon" type="image/png" href="images/clouds.png">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div id="card">
+        <div id="search">
+            <input type="text" placeholder="City Name" id="search-bar">
+            <button id="search-btn"><img src="images/search.png" alt="search"></button>
+        </div>
+
+        <div id="error">
+            <p>Invalid city name</p>
+        </div>
+
+        <div id="wheater">
+            <img src="images/clear.png" id="wheater-icon">
+            <p id="temp"><span id="temp-value">22</span>˚c</p>
+            <p id="city">Hyderbad</p>
+
+            <div id="add-info">
+
+                <div class="info">
+                    <div class="info-img">
+                        <img src="images/humidity.png" id="humitdy-icon">
+                    </div>
+                    <div class="info-main">
+                        <p><span id="humidity-value">64%</span></p>
+                        <p>Humidity</p>
+                    </div>
+                </div>
+
+                <div class="info">
+                    <div class="info-img">
+                        <img src="images/wind.png" id="wind-icon">
+                    </div>
+                    <div class="info-main">
+                        <p><span id="wind-value">18 km/h</span></p>
+                        <p>Wind Speed</p>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
