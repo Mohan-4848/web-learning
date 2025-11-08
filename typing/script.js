@@ -35,6 +35,8 @@ document.addEventListener("keydown", ()=>{
 typingText.addEventListener("click", ()=>{
     inputField.focus()
 })
+document.getElementById("accuracy").textContent = calculatedAccuracy;
+
 
 function initTyping(){
     const charecters = typingText.querySelectorAll("span")
