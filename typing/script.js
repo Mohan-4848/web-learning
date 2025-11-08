@@ -19,9 +19,11 @@ function reset(){
     })
     inputField.value = ''
     charIndex = 0
-    totalWord.innerText = para[randIndex].length
-    currentWord.innerText = charIndex
-    wpm.innerText = wpmDis
+    const totalWords = para[randIndex].split(" ").length;
+    const timeTaken = (endTime - startTime) / 1000 / 60;
+    wpmDis = Math.round(totalWords / timeTaken);
+    wpm.innerText = wpmDis;
+
 }
 
 
@@ -35,7 +37,13 @@ document.addEventListener("keydown", ()=>{
 typingText.addEventListener("click", ()=>{
     inputField.focus()
 })
-document.getElementById("accuracy").textContent = calculatedAccuracy;
+let correctChars = 0;
+
+function calculateAccuracy() {
+    const accuracy = (correctChars / charIndex) * 100 || 0;
+    document.getElementById("accuracy").textContent = accuracy.toFixed(2);
+}
+
 
 
 function initTyping(){
@@ -46,10 +54,9 @@ function initTyping(){
         startTime = Date.now()
     }
 
-    if(typedChar == null){
-        charIndex --
-        currentWord.innerText = charIndex
-        charecters[charIndex].classList.remove("incorrect","correct")
+    if (typedChar == null && charIndex > 0) {
+    charIndex--;
+    charecters[charIndex].classList.remove("incorrect", "correct")
         charecters.forEach(span => span.classList.remove("active"))
         charecters[charIndex].classList.add("active")
     }
@@ -75,9 +82,18 @@ function initTyping(){
         const endTime = Date.now()
         wpm.innerText = wpmDis = Math.round(para[randIndex].length/(5*((endTime-startTime)/1000))*60)
     }
+    if (charecters[charIndex].innerText === typedChar) {
+    charecters[charIndex].classList.add("correct");
+    correctChars++;
+    } else {
+    charecters[charIndex].classList.add("incorrect");
+    }
+    calculateAccuracy();
+
 
     
 }
 
 reset()
 inputField.addEventListener("input",initTyping)
+
