@@ -3,25 +3,28 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Typing speed test</title>
+    <title>TyperX</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <header>
         <!--rename it i you want cant think of a name-->
-        <h1>Speedy</h1>
+        <h1 class="heading">TyperX</h1>
     </header>
     <main>
+        <h3 class="second_heading">Typing Speed Test</h3>
         <input type="text"  id="input" >
         <section id="text-area">
             <!--insdie below p tag the para is written from js-->
-            <p></p>
         </section>
         <section id="score-area">
             <p>Words: <span id="current-word">0</span> Out of <span id="total-word">150</span></p>
             <button id="restart-btn">Restart</button>
             <p>Previous Wpm: <span id="wpm">40</span>Wpm</p>
         </section>
+        <div id="accuracy-tab">
+         Your Accuracy: <span id="accuracy">100</span>%
+        </div>
     </main>
     <script src="para.js"></script>
     <script src="script.js"></script>
