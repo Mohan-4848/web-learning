@@ -1,0 +1,22 @@
+const para =[
+            "The old clock tower chimed at midnight, its sound echoing through the empty, silent streets of the town.",
+            "Many people find that learning a new language opens up doors to different cultures and new ways of thinking.",
+            "A complex problem often requires a simple solution, but finding that simple solution is the most difficult part.",
+            "She quickly packed her bags, double-checked her ticket, and headed to the airport for the long-awaited vacation.",
+            "The delicious smell of fresh coffee and baking bread drifted from the small cafe, inviting passersby to come inside.",
+            "He spent hours debugging the code, carefully checking each line for the single, tiny error that was causing the crash.",
+            "Dark storm clouds gathered on the horizon, promising a heavy rain that the dry fields desperately needed.",
+            "Modern web design focuses heavily on user experience, ensuring that sites are both beautiful and easy to navigate.",
+            "The artist picked up her brush, mixing the blue and yellow paints on her palette to create the perfect shade of green.",
+            "A good book can transport you to another world, allowing you to live a thousand different lives in one.",
+            "The solar panels on the roof absorbed the bright sunlight, efficiently converting it into clean energy for the entire house.",
+            "They decided to take the scenic route, driving along the winding coastal road with all the windows down.",
+            "Cybersecurity is a rapidly growing field, as protecting digital information becomes more important every single day.",
+            "The ancient castle stood proudly on the hill, its stone walls telling silent stories of battles fought long ago.",
+            "He practiced the guitar riff over and over again, determined to get the complex timing and the notes exactly right.",
+            "The new restaurant downtown received excellent reviews for its innovative dishes and its friendly, welcoming atmosphere.",
+            "A sudden, unexplained noise from the attic made everyone jump, but it turned out to be just the wind.",
+            "In the heart of the bustling city, there was a small, quiet park where people could escape the noise.",
+            "The entire team celebrated their hard-earned victory, having worked tirelessly for months to achieve their ambitious goal.",
+            "The deep-sea explorer discovered a new species of jellyfish, one that glowed with a soft, ethereal light."
+]

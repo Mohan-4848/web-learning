@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Typing speed test</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <!--rename it i you want cant think of a name-->
+        <h1>Speedy</h1>
+    </header>
+    <main>
+        <input type="text"  id="input" >
+        <section id="text-area">
+            <!--insdie below p tag the para is written from js-->
+            <p></p>
+        </section>
+        <section id="score-area">
+            <p>Words: <span id="current-word">0</span> Out of <span id="total-word">150</span></p>
+            <button id="restart-btn">Restart</button>
+            <p>Previous Wpm: <span id="wpm">40</span>Wpm</p>
+        </section>
+    </main>
+    <script src="para.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
