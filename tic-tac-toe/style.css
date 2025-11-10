@@ -1,0 +1,39 @@
+*{
+    bottom: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body{
+    background-color: #0D2C54;
+}
+h1{
+    color: #FFB400;
+}
+main{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+#game{
+    margin-top: 10%;
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+    
+}
+#game button{
+    height: 150px;
+    width: 150px;
+    border: none;
+    margin: 5px;
+    border-radius: 15px;
+    background-color: #00A6ED;
+    font-size: 5rem;
+    font-weight: bold;
+}
+
+.ans-x{
+    color: #F6511D;
+}
+.ans-y{
+    color: #7FB800;
+}
