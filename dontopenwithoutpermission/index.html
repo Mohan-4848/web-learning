@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Romantic Glitch</title>
+    <style>
+        :root {
+            --pink: #ff85a2;
+            --dark-pink: #f62d67;
+            --accent: #ff0a54;
+        }
+
+        body {
+            margin: 0;
+            padding: 0;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: #ffe3ec;
+            /* Pink Heart Background */
+            background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="60" height="60" viewBox="0 0 24 24" fill="%23ff85a2" opacity="0.4"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>');
+            font-family: 'Segoe UI', Roboto, sans-serif;
+            overflow: hidden;
+        }
+
+        #ui-wrap {
+            text-align: center;
+            z-index: 10;
+        }
+
+        h1 {
+            color: var(--dark-pink);
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 20px;
+        }
+
+        #reveal-btn {
+            padding: 18px 35px;
+            font-size: 20px;
+            font-weight: bold;
+            background: var(--dark-pink);
+            color: white;
+            border: none;
+            border-radius: 12px;
+            cursor: pointer;
+            box-shadow: 0 8px 15px rgba(246, 45, 103, 0.3);
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        /* The Bouncing Couple Photo */
+        #couple-img {
+            display: none;
+            position: absolute;
+            width: 250px;
+            aspect-ratio: 1/1;
+            object-fit: cover;
+            border: 8px solid white;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+            z-index: 5;
+            /* Smooth size transition */
+            transition: width 0.8s ease-in-out, height 0.8s ease-in-out; 
+        }
+
+        .floating-heart {
+            position: absolute;
+            pointer-events: none;
+            animation: rise 2.5s ease-out forwards;
+        }
+
+        @keyframes rise {
+            0% { transform: translateY(0) scale(1); opacity: 1; }
+            100% { transform: translateY(-150px) scale(1.5); opacity: 0; }
+        }
+    </style>
+</head>
+<body>
+
+    <div id="ui-wrap">
+        <h1 id="main-text">A Small Gift for You</h1>
+        <button id="reveal-btn">Click to Open</button>
+    </div>
+
+    <img id="couple-img" src="./Gemini_Generated_Image_(2).png" alt="Couple">
+
+    <script>
+        const btn = document.getElementById('reveal-btn');
+        const img = document.getElementById('couple-img');
+        const text = document.getElementById('main-text');
+        
+        let escapes = 0;
+        const maxEscapes = 4;
+
+        // The "Troll" Phase
+        btn.addEventListener('mouseover', () => {
+            if (escapes < maxEscapes) {
+                const x = Math.random() * (window.innerWidth - 150);
+                const y = Math.random() * (window.innerHeight - 80);
+                btn.style.position = 'absolute';
+                btn.style.left = x + 'px';
+                btn.style.top = y + 'px';
+                btn.innerText = "Catch me!";
+                escapes++;
+            } else if (escapes === maxEscapes) {
+                btn.innerText = "Okay, I'll stop.";
+                btn.style.background = "#2ecc71"; // Turn green
+                escapes++;
+            }
+        });
+
+        // The "Cool" Phase
+        btn.addEventListener('click', () => {
+            btn.style.display = 'none';
+            text.innerText = "💖💖💖";
+            
+            img.style.display = 'block';
+            
+            let posX = window.innerWidth / 2 - 125;
+            let posY = window.innerHeight / 2 - 125;
+            let velX = 4;
+            let velY = 4;
+
+            // Handle the size change on a separate interval so it's not "per frame"
+            setInterval(() => {
+                // Smoothly oscillates between 200px and 350px
+                const newSize = 220 + Math.random() * 100;
+                img.style.width = newSize + 'px';
+            }, 1200); // Changes every 1.2 seconds for a chill vibe
+
+            function move() {
+                const rect = img.getBoundingClientRect();
+                
+                posX += velX;
+                posY += velY;
+
+                // Bounce detection
+                if (posX + rect.width >= window.innerWidth || posX <= 0) {
+                    velX = -velX;
+                    spawnHeart(posX + rect.width/2, posY + rect.height/2);
+                }
+                if (posY + rect.height >= window.innerHeight || posY <= 0) {
+                    velY = -velY;
+                    spawnHeart(posX + rect.width/2, posY + rect.height/2);
+                }
+
+                img.style.left = posX + 'px';
+                img.style.top = posY + 'px';
+                
+                requestAnimationFrame(move);
+            }
+            requestAnimationFrame(move);
+        });
+
+        function spawnHeart(x, y) {
+            const h = document.createElement('div');
+            h.className = 'floating-heart';
+            h.innerHTML = '❤️';
+            h.style.left = x + 'px';
+            h.style.top = y + 'px';
+            h.style.fontSize = (20 + Math.random() * 20) + 'px';
+            document.body.appendChild(h);
+            setTimeout(() => h.remove(), 2500);
+        }
+    </script>
+</body>
+</html>
